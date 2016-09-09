@@ -12,7 +12,7 @@ Future changes:
   Encrypt card details
   
 
-### 09/09/2016 ######################################
+09/09/2016
 
   Created Jframe and set bounds
   Window will always appear on top of other applications.
@@ -21,5 +21,5 @@ Future changes:
   Create internal frames
   Finish decesion and scripting processes
   
-#####################################################
+
   
