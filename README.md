@@ -11,3 +11,15 @@ Future changes:
   Prevent call recording during CC detail capture
   Encrypt card details
   
+
+### 09/09/2016 ######################################
+
+  Created Jframe and set bounds
+  Window will always appear on top of other applications.
+  
+~~TO DO~~
+  Create internal frames
+  Finish decesion and scripting processes
+  
+#####################################################
+  
