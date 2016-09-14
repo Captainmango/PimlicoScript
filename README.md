@@ -10,16 +10,9 @@ Future changes:
   Availabilty management from app
   Prevent call recording during CC detail capture
   Encrypt card details
-  
 
-### 09/09/2016 #################################################
 
-  Created Jframe and set bounds
-  Window will always appear on top of other applications.
-  
-~~TO DO~~
-  Create internal frames
-  Finish decesion and scripting processes
-################################################################ 
+### 14/09/2016 ###  
+Reporting will be in Excel for the short term. When the Db connector is finished and space is created, a portion of the dataase will be kept aside for call data. Ideally, this is a short term scenario until we can get a better quality management software in place.
 
   
