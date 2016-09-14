@@ -1,3 +1,4 @@
+package login;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +10,8 @@ import javax.swing.JToolBar;
 import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login {
 
@@ -43,9 +46,12 @@ public class Login {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
+
+	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 535, 346);
+		frame.setBounds(100, 100, 400, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -78,5 +84,9 @@ public class Login {
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.setBounds(132, 240, 97, 25);
 		frame.getContentPane().add(btnLogin);
+		
+                        }
+              
+		
 	}
-}
+
