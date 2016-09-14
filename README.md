@@ -12,7 +12,7 @@ Future changes:
   Encrypt card details
 
 
-### 14/09/2016 ###  
+### 14/09/2016  
 Reporting will be in Excel for the short term. When the Db connector is finished and space is created, a portion of the dataase will be kept aside for call data. Ideally, this is a short term scenario until we can get a better quality management software in place.
 
   
