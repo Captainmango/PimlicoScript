@@ -11,10 +11,10 @@ import java.io.Serializable;
  */
 public class Bean implements Serializable {
 
-	private String firstName;
-	private String lastName;
-	private String callReason;
-	private String systemTime;
+	public String firstName;
+	public String lastName;
+	public String callReason;
+	public String systemTime;
 	
 	
 	/* (non-Javadoc)
