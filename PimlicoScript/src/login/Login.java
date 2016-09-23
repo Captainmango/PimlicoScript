@@ -1,6 +1,7 @@
 package login;
 import java.awt.EventQueue;
 
+import login.Main;
 import javax.swing.JFrame;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
@@ -14,6 +15,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import windows.Pimscript;
+
 import java.awt.Component;
 import java.awt.Color;
 
@@ -83,15 +87,13 @@ public class Login extends Loginset{
                             JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
                     
+                    Pimscript PimDlg = new Pimscript();
+					PimDlg.setVisible(true);
+					
               
 				} else {
 					dispose();
-                    JOptionPane.showMessageDialog(btnLogin, Login.this,
-                            "Invalid username or password", 0);
                     
-                    textFieldUserName.setText("");
-                    passwordField.setText("");
-                    succeeded = false;
 				}
 			}
 		});
@@ -101,7 +103,9 @@ public class Login extends Loginset{
 		clearButton = new JButton("CLEAR");
 		clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+			textFieldUserName.setText("");
+			passwordField.setText("");
+			textFieldExtNumber.setText("");
 			}
 		});
 		clearButton.setBounds(132, 257, 97, 25);
@@ -116,6 +120,7 @@ public class Login extends Loginset{
          
          textFieldUserName.setText("");
          passwordField.setText("");
+         textFieldExtNumber.setText("");
          succeeded = false;
 		}
 		
