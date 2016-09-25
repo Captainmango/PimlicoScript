@@ -1,8 +1,10 @@
 package login;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import login.Main;
 import javax.swing.JFrame;
+import javax.swing.AbstractAction;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
@@ -13,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
@@ -20,6 +23,9 @@ import windows.Pimscript;
 
 import java.awt.Component;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login extends Loginset{
 
@@ -29,6 +35,7 @@ public class Login extends Loginset{
 	private JTextField textFieldExtNumber;
 	protected boolean succeeded;
 	private JButton clearButton;
+	
 
 	/**
 	 * Launch the application.
@@ -38,17 +45,18 @@ public class Login extends Loginset{
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise the contents of the frame.
 	 */
 	
 
 	
 	private void initialize() {
 		Loginwindow = new JFrame();
+	
 		Loginwindow.setBackground(Color.WHITE);
 		Loginwindow.setTitle("Pimlico Script");
 		Loginwindow.setBounds(100, 100, 326, 354);
-		Loginwindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Loginwindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		Loginwindow.getContentPane().setLayout(null);
 		
 		textFieldUserName = new JTextField();
@@ -82,18 +90,19 @@ public class Login extends Loginset{
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Loginset.authenticate(getUsername(), getPassword())) {
-					JOptionPane.showMessageDialog(btnLogin, (Login.this),
-							"Hi " + getUsername() + " You have successfully logged in.",
-                            JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(btnLogin, "Hi " + getUsername() + " You have successfully logged in."
+							,"Login Successful",JOptionPane.INFORMATION_MESSAGE);
                     succeeded = true;
                     
                     Pimscript PimDlg = new Pimscript();
-					PimDlg.setVisible(true);
-					
-              
+    				PimDlg.setVisible(true);
+    				
+    				Loginwindow.setVisible(false);
 				} else {
 					dispose();
-                    
+					
+					
+					
 				}
 			}
 		});
@@ -110,13 +119,15 @@ public class Login extends Loginset{
 		});
 		clearButton.setBounds(132, 257, 97, 25);
 		Loginwindow.getContentPane().add(clearButton);
+		
+		
 		Loginwindow.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{Loginwindow.getContentPane(), textFieldUserName, passwordField, textFieldExtNumber, lblUsername, lblPassword, lblExtNumber, btnLogin}));
 		
                         }
 	
-	protected void dispose() {
-		 JOptionPane.showMessageDialog(clearButton, Login.this,
-                 "Invalid username or password", 0);
+	private void dispose() {
+		 JOptionPane.showMessageDialog(clearButton, "Invalid username or password",
+                 "Login Failed", 0);
          
          textFieldUserName.setText("");
          passwordField.setText("");
@@ -136,8 +147,10 @@ public class Login extends Loginset{
     public boolean isSucceeded() {
         return succeeded;
     }
+    
+
 /*
- * Created launch app
+ *Launch application
  */
 	public void setVisible(boolean b) {
 			EventQueue.invokeLater(new Runnable() {
