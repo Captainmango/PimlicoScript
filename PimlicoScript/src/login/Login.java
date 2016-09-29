@@ -121,7 +121,7 @@ public class Login extends Loginset{
 		Loginwindow.getContentPane().add(clearButton);
 		
 		
-		Loginwindow.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{Loginwindow.getContentPane(), textFieldUserName, passwordField, textFieldExtNumber, lblUsername, lblPassword, lblExtNumber, btnLogin}));
+		//Loginwindow.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{Loginwindow.getContentPane(), textFieldUserName, passwordField, textFieldExtNumber, lblUsername, lblPassword, clearButton, btnLogin}));
 		
                         }
 	
