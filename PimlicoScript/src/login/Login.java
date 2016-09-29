@@ -108,7 +108,6 @@ public class Login extends Loginset{
 				} else {
 					getRid();
 					
-					
 				}
 			}
 		});
