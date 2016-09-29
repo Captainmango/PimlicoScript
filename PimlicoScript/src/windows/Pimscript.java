@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import calltracker.Pimscriptwindow;
+
 import java.awt.CardLayout;
 import java.awt.Component;
 
@@ -21,6 +24,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import windows.Trades;
 import java.awt.Font;
+import java.awt.Color;
 
 public class Pimscript extends JFrame {
 	
@@ -80,6 +84,7 @@ public class Pimscript extends JFrame {
 		confbook.setLayout(null);
 		
 		JButton btnNext = new JButton("Next");
+		btnNext.setBackground(Color.WHITE);
 		btnNext.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,6 +95,7 @@ public class Pimscript extends JFrame {
 		estissue.add(btnNext);
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.setBackground(Color.WHITE);
 		btnBack.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,6 +106,7 @@ public class Pimscript extends JFrame {
 		securapp.add(btnBack);
 		
 		JButton btnNext_1 = new JButton("Next");
+		btnNext_1.setBackground(Color.WHITE);
 		btnNext_1.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnNext_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -110,6 +117,7 @@ public class Pimscript extends JFrame {
 		securapp.add(btnNext_1);
 		
 		JButton btnBack_1 = new JButton("Back");
+		btnBack_1.setBackground(Color.WHITE);
 		btnBack_1.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -120,11 +128,25 @@ public class Pimscript extends JFrame {
 		confbook.add(btnBack_1);
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/*
+				 * database transaction will take place in calltracker
+				 * */
+				
+				dispose();
+				
+				Pimscriptwindow frame = new Pimscriptwindow();
+				frame.setVisible(true);
+			}
+		});
+		btnSubmit.setBackground(Color.WHITE);
 		btnSubmit.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnSubmit.setBounds(287, 318, 73, 25);
 		confbook.add(btnSubmit);
 		
 			JComboBox comboBox = new JComboBox();
+			comboBox.setBackground(Color.WHITE);
 			comboBox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					//combobox pane switcher code

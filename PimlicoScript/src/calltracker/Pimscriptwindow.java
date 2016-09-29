@@ -19,11 +19,13 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import windows.Trades;
+import javax.swing.JToggleButton;
 
 
 public class Pimscriptwindow extends JFrame {
-
+//  call reasons("Job booking", "Complaint", "Engineer call", "Job update", "Enquiry", "Other")
 	private JPanel contentPane;
+
 
 	/**
 	 * Launch the application.
@@ -47,13 +49,10 @@ public class Pimscriptwindow extends JFrame {
 	 * Frame bounds for finished program (1060, 600, 600, 1000)
 	 * Current bounds for call tagger (1275, 600, 400, 400)
 	 */
-	
 
-String[] callReasons = {"Job booking", "Complaint", "Engineer call", "Job update", "Enquiry", "Other"};
-	
-	//  call reasons("Job booking", "Complaint", "Engineer call", "Job update", "Enquiry", "Other")
 	
 	public Pimscriptwindow() {
+		setTitle("Call Tracker");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pimscriptwindow.class.getResource("/images/pimlico-plumbers-head-2015.png")));
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,16 +65,24 @@ String[] callReasons = {"Job booking", "Complaint", "Engineer call", "Job update
 		contentPane.setLayout(null);
 		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setForeground(new Color(0, 0, 0));
-		btnSubmit.setBackground(Color.WHITE);
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				/*
+				 * Put sql statement here for database transaction.
+				 * */
+				
+				dispose();
+			Pimscript frame = new Pimscript();
+			frame.setVisible(true);
 			}
 		});
+		btnSubmit.setForeground(new Color(0, 0, 0));
+		btnSubmit.setBackground(Color.WHITE);
 		btnSubmit.setBounds(285, 115, 89, 23);
 		contentPane.add(btnSubmit);
 		
 		JComboBox callTags = new JComboBox();
+		callTags.setBackground(Color.WHITE);
 		callTags.setModel(new DefaultComboBoxModel(Trades.values()));
 		callTags.setBounds(10, 78, 128, 23);
 		contentPane.add(callTags);
@@ -94,9 +101,10 @@ String[] callReasons = {"Job booking", "Complaint", "Engineer call", "Job update
 		lblNewLabel.setBounds(271, 11, 113, 56);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 115, 128, 23);
-		contentPane.add(comboBox);
+		JComboBox callReason = new JComboBox();
+		callReason.setBackground(Color.WHITE);
+		callReason.setBounds(10, 115, 128, 23);
+		contentPane.add(callReason);
 		
 		
 		

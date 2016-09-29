@@ -26,6 +26,7 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Dialog.ModalExclusionType;
 
 public class Login extends Loginset{
 
@@ -52,9 +53,14 @@ public class Login extends Loginset{
 	
 	private void initialize() {
 		Loginwindow = new JFrame();
+		Loginwindow.setForeground(Color.WHITE);
+		Loginwindow.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/pimlico-plumbers-head-2015.png")));
+		Loginwindow.setResizable(false);
+		Loginwindow.setAlwaysOnTop(true);
+		Loginwindow.setAutoRequestFocus(false);
 	
 		Loginwindow.setBackground(Color.WHITE);
-		Loginwindow.setTitle("Pimlico Script");
+		Loginwindow.setTitle("PimlicoScript");
 		Loginwindow.setBounds(100, 100, 326, 354);
 		Loginwindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		Loginwindow.getContentPane().setLayout(null);
@@ -79,7 +85,7 @@ public class Login extends Loginset{
 		Loginwindow.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(32, 100, 56, 16);
+		lblPassword.setBounds(32, 100, 90, 16);
 		Loginwindow.getContentPane().add(lblPassword);
 		
 		JLabel lblExtNumber = new JLabel("Ext. number");
@@ -87,6 +93,7 @@ public class Login extends Loginset{
 		Loginwindow.getContentPane().add(lblExtNumber);
 		
 		JButton btnLogin = new JButton("LOGIN");
+		btnLogin.setBackground(Color.WHITE);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Loginset.authenticate(getUsername(), getPassword())) {
@@ -99,7 +106,7 @@ public class Login extends Loginset{
     				
     				Loginwindow.setVisible(false);
 				} else {
-					dispose();
+					getRid();
 					
 					
 					
@@ -110,6 +117,7 @@ public class Login extends Loginset{
 		Loginwindow.getContentPane().add(btnLogin);
 		
 		clearButton = new JButton("CLEAR");
+		clearButton.setBackground(Color.WHITE);
 		clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			textFieldUserName.setText("");
@@ -125,7 +133,7 @@ public class Login extends Loginset{
 		
                         }
 	
-	private void dispose() {
+	private void getRid() {
 		 JOptionPane.showMessageDialog(clearButton, "Invalid username or password",
                  "Login Failed", 0);
          
