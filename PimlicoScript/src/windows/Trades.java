@@ -26,13 +26,12 @@ public enum Trades {
 		             return trade.toString();
 		
 		      	}
-		         throw new IllegalArgumentException("the given number doesn't match any Trades listed.");}
+		         throw new IllegalArgumentException("the given number doesn't match any Trades listed.");
+		     
+		     }
 			return null;
-			
-		
-	
 		}
-}
+	}
 		     
 
 	
