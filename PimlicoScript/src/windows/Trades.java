@@ -1,6 +1,7 @@
 package windows;
 
 public enum Trades {
+	
 	Plumbing(0),
 	Roofing(1),
 	Electrics(2),
