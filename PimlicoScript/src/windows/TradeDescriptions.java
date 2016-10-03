@@ -1,11 +1,14 @@
 package windows;
 
+import javax.swing.JPanel;
 
+public class TradeDescriptions extends Pimscript {
 
-
-public class TradeDescriptions {
-
-
-public String plumbingDesc = new String("Plumbing script");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	
 }

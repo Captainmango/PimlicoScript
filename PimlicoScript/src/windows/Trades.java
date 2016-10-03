@@ -9,7 +9,8 @@ public enum Trades {
 	Carpentry(4),
 	Heating(5),
 	Drainage(6),
-	Building(7);
+	Building(7),
+	Unsure(8);
 
 	private final int trade;
 	

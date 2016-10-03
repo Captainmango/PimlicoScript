@@ -1,5 +1,6 @@
 package calltracker;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -12,10 +13,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ListCellRenderer;
 
 import windows.Pimscript;
+import login.Main;
 
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import windows.Trades;
@@ -64,6 +68,8 @@ public class Pimscriptwindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		String[] callReasons = {"Job Booking", "Complaint", "Engineer", "Enquiry", "Accounts", "Sales"};
+		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -85,14 +91,15 @@ public class Pimscriptwindow extends JFrame {
 		callTags.setBackground(Color.WHITE);
 		callTags.setModel(new DefaultComboBoxModel(Trades.values()));
 		callTags.setBounds(10, 78, 128, 23);
+		callTags.setSelectedIndex(-1);
 		contentPane.add(callTags);
 		
 		JTextPane txtpnLabelTheCall = new JTextPane();
-		txtpnLabelTheCall.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		txtpnLabelTheCall.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txtpnLabelTheCall.setForeground(new Color(0, 0, 0));
 		txtpnLabelTheCall.setBackground(new Color(176, 224, 230));
 		txtpnLabelTheCall.setEditable(false);
-		txtpnLabelTheCall.setText("Label the call with a reason from the drop down box?");
+		txtpnLabelTheCall.setText("Label the call with a reason and trade from the drop down boxes");
 		txtpnLabelTheCall.setBounds(10, 11, 251, 56);
 		contentPane.add(txtpnLabelTheCall);
 		
@@ -101,12 +108,20 @@ public class Pimscriptwindow extends JFrame {
 		lblNewLabel.setBounds(271, 11, 113, 56);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox callReason = new JComboBox();
+		final String _title = "Call Reasons";
+		
+		
+		JComboBox callReason = new JComboBox(callReasons);
 		callReason.setBackground(Color.WHITE);
 		callReason.setBounds(10, 115, 128, 23);
+		callReason.setSelectedIndex(-1);
+		
+		
 		contentPane.add(callReason);
 		
 		
 		
+        }
+		
 	}
-}
+

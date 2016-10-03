@@ -8,16 +8,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import calltracker.Pimscriptwindow;
+import windows.TradeDescriptions;
 
 import java.awt.CardLayout;
-import java.awt.Component;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.JToolBar;
 import javax.swing.JComboBox;
+import javax.swing.AbstractButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
@@ -25,18 +24,24 @@ import java.awt.Toolkit;
 import windows.Trades;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.JToggleButton;
+import javax.swing.JTextField;
 
 
 
 public class Pimscript extends JFrame {
 	
+
 	/**
-	 * 
+	
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public int i;
-
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -97,15 +102,15 @@ public class Pimscript extends JFrame {
 			plumbing.setLayout(null);
 			
 			JLabel lblPlumbingPrice = new JLabel("Plumbing Price");
-			lblPlumbingPrice.setBounds(12, 12, 93, 26);
-			plumbing.add(lblPlumbingPrice);
+			lblPlumbingPrice.setBounds(0, 0, 93, 26);
+			plumbing.add(lblPlumbingPrice); 
 		
 			JPanel roofing = new JPanel();
 			parentPanelTrades.add(roofing, "name_2686653938219");
 			roofing.setLayout(null);
 			
 			JLabel lblRoofingPrice = new JLabel("Roofing Price");
-			lblRoofingPrice.setBounds(12, 12, 89, 16);
+			lblRoofingPrice.setBounds(0, 0, 89, 16);
 			roofing.add(lblRoofingPrice);
 		
 			JPanel electrics = new JPanel();
@@ -113,7 +118,7 @@ public class Pimscript extends JFrame {
 			electrics.setLayout(null);
 			
 			JLabel lblElectricianPrice = new JLabel("Electrician Price");
-			lblElectricianPrice.setBounds(12, 12, 108, 23);
+			lblElectricianPrice.setBounds(0, 0, 108, 23);
 			electrics.add(lblElectricianPrice);
 		
 			JPanel appliances = new JPanel();
@@ -121,7 +126,7 @@ public class Pimscript extends JFrame {
 			appliances.setLayout(null);
 			
 			JLabel lblAppliancesPrice = new JLabel("Appliances Price");
-			lblAppliancesPrice.setBounds(12, 12, 104, 28);
+			lblAppliancesPrice.setBounds(0, 0, 104, 28);
 			appliances.add(lblAppliancesPrice);
 		
 			JPanel carpentry = new JPanel();
@@ -129,7 +134,7 @@ public class Pimscript extends JFrame {
 			carpentry.setLayout(null);
 			
 			JLabel lblCarpenterPrice = new JLabel("Carpenter Price");
-			lblCarpenterPrice.setBounds(12, 12, 109, 28);
+			lblCarpenterPrice.setBounds(0, 0, 109, 28);
 			carpentry.add(lblCarpenterPrice);
 		
 			JPanel heating = new JPanel();
@@ -137,7 +142,7 @@ public class Pimscript extends JFrame {
 			heating.setLayout(null);
 			
 			JLabel lblHeatingPrice = new JLabel("Heating Price");
-			lblHeatingPrice.setBounds(12, 12, 113, 26);
+			lblHeatingPrice.setBounds(0, 0, 113, 26);
 			heating.add(lblHeatingPrice);
 			
 			JPanel drainage = new JPanel();
@@ -145,7 +150,7 @@ public class Pimscript extends JFrame {
 			drainage.setLayout(null);
 			
 			JLabel lblDrainagePrice = new JLabel("Drainage Price");
-			lblDrainagePrice.setBounds(12, 12, 114, 26);
+			lblDrainagePrice.setBounds(0, 0, 114, 26);
 			drainage.add(lblDrainagePrice);
 		
 			JPanel building = new JPanel();
@@ -153,8 +158,12 @@ public class Pimscript extends JFrame {
 			building.setLayout(null);
 			
 			JLabel lblBuildingPrice = new JLabel("Building Price");
-			lblBuildingPrice.setBounds(12, 12, 118, 28);
+			lblBuildingPrice.setBounds(0, 0, 118, 28);
 			building.add(lblBuildingPrice);
+			
+			JPanel other = new JPanel();
+			parentPanelTrades.add(other, "name_17527498714889");
+			other.setLayout(null);	
 		
 		JPanel securapp = new JPanel();
 		parentPanel.add(securapp, "name_86699260782335");
@@ -164,8 +173,52 @@ public class Pimscript extends JFrame {
 		parentPanel.add(confbook, "name_86699302989589");
 		confbook.setLayout(null);
 			
-		//end of panels 
-		//start of buttons
+			JPanel cardDetails = new JPanel();
+			cardDetails.setBounds(12, 179, 350, 115);
+			confbook.add(cardDetails);
+			cardDetails.setLayout(null);
+			
+				JToggleButton Hide = new JToggleButton("Hide\r\n");
+				Hide.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						if(Hide.isSelected()){ cardDetails.setVisible(false);
+						}else{cardDetails.setVisible(true);
+						}
+					}
+				});
+				Hide.setBackground(Color.WHITE);
+				Hide.setBounds(12, 150, 59, 17);
+				confbook.add(Hide);
+				
+				JLabel lblAccountNumber = new JLabel("Account Number");
+				lblAccountNumber.setBounds(12, 12, 95, 16);
+				cardDetails.add(lblAccountNumber);
+			
+				JLabel lblSortCode = new JLabel("Sort Code");
+				lblSortCode.setBounds(12, 40, 95, 16);
+				cardDetails.add(lblSortCode);
+			
+				JLabel lblCsc = new JLabel("CSC");
+				lblCsc.setBounds(12, 68, 95, 16);
+				cardDetails.add(lblCsc);
+			
+				textField = new JTextField();
+				textField.setBounds(125, 10, 213, 20);
+				cardDetails.add(textField);
+				textField.setColumns(10);
+			
+				textField_1 = new JTextField();
+				textField_1.setBounds(125, 38, 103, 20);
+				cardDetails.add(textField_1);
+				textField_1.setColumns(10);
+			
+				textField_2 = new JTextField();
+				textField_2.setBounds(125, 66, 57, 20);
+				cardDetails.add(textField_2);
+				textField_2.setColumns(10);
+			
+				//end of panels 
+				//start of buttons
 		
 		JButton btnNext = new JButton("Next");
 		btnNext.setBackground(Color.WHITE);
@@ -182,6 +235,8 @@ public class Pimscript extends JFrame {
 				
 		btnNext.setBounds(303, 318, 57, 25);
 		estissue.add(btnNext);
+		
+		
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(Color.WHITE);
@@ -237,9 +292,9 @@ public class Pimscript extends JFrame {
 		//end of buttons
 		
 			JComboBox comboBox = new JComboBox();
-			comboBox.setSelectedIndex(-1);
 			comboBox.setToolTipText("Select Trade");
 			comboBox.setBackground(Color.WHITE);
+			comboBox.setSelectedIndex(-1);
 			
 			String _title = "Select Trade";
 			
@@ -274,7 +329,7 @@ public class Pimscript extends JFrame {
 						cl_parentPanelTrades.show(parentPanelTrades, "name_2686703446872");
 					break;
 				default: parentPanelTrades.setVisible(true);
-						cl_parentPanelTrades.show(parentPanelTrades, "name_14669057642524");
+						cl_parentPanelTrades.show(parentPanelTrades, "name_17527498714889");
 					break;
 				}
 				}
@@ -292,6 +347,10 @@ public class Pimscript extends JFrame {
 			greetingScript.setBounds(10, 11, 354, 47);
 			estissue.add(greetingScript);
 			
+			JLabel lblGetAdviseFrom = new JLabel("Get advise from manager/ get more info");
+			lblGetAdviseFrom.setBounds(0, 0, 234, 16);
+			other.add(lblGetAdviseFrom);
+			
 			//card layout assignments
 				
 				cl_parentPanelTrades.addLayoutComponent(selectTrade, "name_14669057642524");
@@ -303,11 +362,13 @@ public class Pimscript extends JFrame {
 				cl_parentPanelTrades.addLayoutComponent(heating, "name_2686686099446"); //heating
 				cl_parentPanelTrades.addLayoutComponent(drainage, "name_2686694701317"); //drainage
 				cl_parentPanelTrades.addLayoutComponent(building, "name_2686703446872"); //building
-				
+				cl_parentPanelTrades.addLayoutComponent(other, "name_17527498714889");
 				
 			layCar.addLayoutComponent(estissue, "name_86699244860590"); //establish issue phase	
 			layCar.addLayoutComponent(securapp, "name_86699260782335"); //securing appointment phase
 			layCar.addLayoutComponent(confbook, "name_86699302989589"); // confirming booking phase
+			
+			
 		
 	}
 }
