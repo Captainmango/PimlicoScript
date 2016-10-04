@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import calltracker.Pimscriptwindow;
-import windows.TradeDescriptions;
-
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,13 +26,8 @@ import javax.swing.JToggleButton;
 import javax.swing.JTextField;
 
 
+public class Pimscript extends PimscriptMain {
 
-public class Pimscript extends JFrame {
-	
-
-	/**
-	
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public int i;
@@ -42,27 +35,12 @@ public class Pimscript extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Pimscript frame = new Pimscript();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
-	 * (1275, 600, 400, 400)
-	 * Create the frame.
+	 * current bounds and screen location of frame. May need changing due to different monitor sizes (1275, 600, 400, 400)
 	 */
 	public Pimscript() {
+		super();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pimscript.class.getResource("/images/pimlico-plumbers-head-2015.png")));
 		setTitle("PimlicoScript");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,6 +50,8 @@ public class Pimscript extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		
 		
 		CardLayout cl_parentPanelTrades = new CardLayout();
 		CardLayout layCar = new CardLayout();
@@ -229,14 +209,8 @@ public class Pimscript extends JFrame {
 				parentPanelTrades.setVisible(false);
 			}
 		});
-		
-		
-			
-				
 		btnNext.setBounds(303, 318, 57, 25);
 		estissue.add(btnNext);
-		
-		
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(Color.WHITE);
@@ -353,6 +327,9 @@ public class Pimscript extends JFrame {
 			
 			//card layout assignments
 				
+			
+			
+			
 				cl_parentPanelTrades.addLayoutComponent(selectTrade, "name_14669057642524");
 				cl_parentPanelTrades.addLayoutComponent(plumbing, "name_2686644518376"); //plumbing
 				cl_parentPanelTrades.addLayoutComponent(roofing, "name_2686653938219"); //roofing
@@ -362,13 +339,11 @@ public class Pimscript extends JFrame {
 				cl_parentPanelTrades.addLayoutComponent(heating, "name_2686686099446"); //heating
 				cl_parentPanelTrades.addLayoutComponent(drainage, "name_2686694701317"); //drainage
 				cl_parentPanelTrades.addLayoutComponent(building, "name_2686703446872"); //building
-				cl_parentPanelTrades.addLayoutComponent(other, "name_17527498714889");
+				cl_parentPanelTrades.addLayoutComponent(other, "name_17527498714889"); // unsure
 				
 			layCar.addLayoutComponent(estissue, "name_86699244860590"); //establish issue phase	
 			layCar.addLayoutComponent(securapp, "name_86699260782335"); //securing appointment phase
 			layCar.addLayoutComponent(confbook, "name_86699302989589"); // confirming booking phase
-			
-			
 		
 	}
 }
