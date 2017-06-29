@@ -1,0 +1,17 @@
+Pimscript use case
+
+
+// program to assist in handling of phone conversations.
+// log calls quickly and easily to produce call data.
+// ensure prices given to customers are always accurate.
+// allow better tracking of what calls Control take as a department.
+// call recorder integration linking CRM (Job Ticket) data to call data?
+// allow dynamic decision making?
+
+
+~~ TO DO ~~
+
+	-CREATE DATABASE AND DATABASE CONNECTION
+	-PARSE WEBSITE PRICE DATA TO TEXT FILE
+	-CREATE CTI CONNECTION WITH PROGRAM
+	-CREATE ACCOUNT CREATOR AND LINK TO DATABASE
